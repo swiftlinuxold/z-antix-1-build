@@ -11,6 +11,8 @@ USERNAME=$(logname)
 
 # This is the script for obtaining all of the repositories needed to generate Diet Swift Linux.
 
+# Need to save password http://help.github.com/ssh-key-passphrases/
+
 get_rep ()
 	{
 	if [ -d "/home/$USERNAME/develop/$1" ]; then
