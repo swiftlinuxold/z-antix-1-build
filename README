@@ -1,5 +1,11 @@
 This is the repository for transforming antiX Linux into Swift Linux.
 
+To download this repository and other repositories, open a regular user shell and enter:
+mkdir ~/develop
+cd ~/develop
+git clone git@github.com:swiftlinux/1-build.git
+sh get_reps_diet.sh
+
 desktop-diet.sh: Transforms the desktop installation of antiX Linux into Diet Swift Linux
 
 build-diet.sh: Transforms the antiX Linux ISO file into the Diet Swift Linux ISO file
