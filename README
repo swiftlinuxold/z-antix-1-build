@@ -1,1 +1,7 @@
 This is the repository for transforming antiX Linux into Swift Linux.
+
+desktop-diet.sh: Transforms the desktop installation of antiX Linux into Diet Swift Linux
+
+build-diet.sh: Transforms the antiX Linux ISO file into the Diet Swift Linux ISO file
+
+shared-diet.sh: The core elements of transforming antiX Linux into Diet Swift Linux; shared by desktop-diet.sh and build-diet.sh
