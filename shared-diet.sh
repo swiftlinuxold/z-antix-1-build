@@ -32,7 +32,9 @@ sh $DIR_DEVELOP/conky/main.sh
 sh $DIR_DEVELOP/control_center/main.sh
 sh $DIR_DEVELOP/iceape/main.sh
 sh $DIR_DEVELOP/icewm/main.sh
+sh $DIR_DEVELOP/mime/main.sh
 sh $DIR_DEVELOP/remove_languages/main.sh
+sh $DIR_DEVELOP/remove_packages/main.sh
 sh $DIR_DEVELOP/rox/main.sh
 sh $DIR_DEVELOP/security/main.sh
 sh $DIR_DEVELOP/slim/main.sh

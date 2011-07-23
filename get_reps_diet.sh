@@ -65,7 +65,9 @@ get_rep iceape
 get_rep icewm
 get_rep installer
 get_rep menu-update
+get_rep mime
 get_rep remove_languages
+get_rep remove_packages
 get_rep rox
 get_rep security
 get_rep slim
