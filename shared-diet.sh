@@ -40,3 +40,4 @@ sh $DIR_DEVELOP/security/main.sh
 sh $DIR_DEVELOP/slim/main.sh
 sh $DIR_DEVELOP/sylpheed/main.sh
 sh $DIR_DEVELOP/wallpaper-standard/main.sh
+sh $DIR_DEVELOP/1-build/remove-deb.sh # Removes stored *.deb files, must be executed last
