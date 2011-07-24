@@ -27,6 +27,7 @@ fi
 # Setting up apt-get/Synaptic MUST come first, because
 # some repositories require installing packages.
 sh $DIR_DEVELOP/apt/main.sh 
+
 sh $DIR_DEVELOP/add_help/main.sh 
 sh $DIR_DEVELOP/conky/main.sh
 sh $DIR_DEVELOP/control_center/main.sh
@@ -40,4 +41,5 @@ sh $DIR_DEVELOP/security/main.sh
 sh $DIR_DEVELOP/slim/main.sh
 sh $DIR_DEVELOP/sylpheed/main.sh
 sh $DIR_DEVELOP/wallpaper-standard/main.sh
+
 sh $DIR_DEVELOP/1-build/remove-deb.sh # Removes stored *.deb files, must be executed last
