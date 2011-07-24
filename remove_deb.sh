@@ -2,8 +2,9 @@
 # Proper header for a Bash script.
 
 # Check for root user login
-if [ $( id -u ) -eq 0 ]; then
-	echo "You must NOT be root to run this script."
+if [ ! $( id -u ) -eq 0 ]; then
+	echo "You must be root to run this script."
+	echo "Please enter su before running this script again."
 	exit
 fi
 
