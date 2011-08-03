@@ -66,7 +66,7 @@ get_rep icewm
 get_rep installer
 get_rep menu-update
 get_rep mime
-get_rep new_iso
+get_rep new-iso
 get_rep remove_languages
 get_rep remove_packages
 get_rep rox

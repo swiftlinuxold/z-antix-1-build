@@ -15,7 +15,7 @@ DIR_DEVELOP=""
 # The remastering process uses chroot mode.
 # Check to see if this script is operating in chroot mode.
 # /srv directory only exists in chroot mode
-if [-d "/srv"]; then
+if [ -d "/srv" ]; then
 	IS_CHROOT=1 # in chroot mode
 	DIR_DEVELOP=/usr/local/bin/develop 
 else
