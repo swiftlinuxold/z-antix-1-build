@@ -103,15 +103,11 @@ function ready? {
 # directory.
 
 function set_host_path {
-	# BEGIN Swift Linux code
 	shopt -s dotglob # Hidden files are included in rm and cp commands.
 	echo -e "Removing /usr/local/bin/remaster/ \n"
 	rm -r /usr/local/bin/remaster/
 	echo -e "/usr/local/bin/remaster/ removed \n"
 	shopt -u dotglob # Hidden files are excluded in rm and cp commands.
-	HOSTPATH=/usr/local/bin
-	echo -e Host path is $HOSTPATH
-	# END Swift Linux code
 
 	# Execute this section if script was NOT executed with --from-hdd option
 	# Sets the current directory as working path, if "remaster" directory already exists prompt for another path
@@ -120,9 +116,6 @@ function set_host_path {
 			# echo -e "Enter the host path (i.e. /home/username) in which you want to remaster your project:\n"
 			# read HOSTPATH
 			# Note that the above lines are bypassed in the interest of automation
-			# BEGIN Swift Linux code
-			
-			# END Swift Linux code
 			echo
 			create_host_dir $HOSTPATH || set_host_path
 		else
@@ -179,24 +172,22 @@ function create_host_dir {
 # NOTE: This Swift Linux version bypasses the manual entry of the path name
 # and automatically sets it as /dev/cdrom.
 function get_iso_path {
-	if [[ -e $1 ]]; then 
-		CD=$1
-		echo -e  "This script will remaster \"$CD\"  \n"
-	else
+	# if [[ -e $1 ]]; then 
+		# CD=$1
+		# echo -e  "This script will remaster \"$CD\"  \n"
+	# else
 		#echo -e "Enter the path of your optical drive with the antiX CD (i.e. /dev/hdc)" 
 		# echo -e "Or enter the complete path to a antiX iso on your hard disk (i.e. /path_to_iso/antiX.iso): \n"
 		# read CD
-		# Note that the above lines under "else" are deactivated.
-		# BEGIN Swift Linux code
+		# Note that the above lines under "if" and "else" are deactivated.
 		echo -e "The path of the optical drive is /dev/cdrom".
 		CD=/dev/cdrom
-		# END Swift Linux code
 		echo
 		if [[ ! -e $CD ]]; then
 			echo -e "Path or file doesn't exist, please try again \n" 
 			get_iso_path
 		fi
-	fi
+	# fi
 }
 
 function create_remaster_env {
@@ -216,6 +207,85 @@ function create_remaster_env {
 	umount iso
 	rm -r squashfs
 	rm -r iso
+}
+
+# Update menu.lst, menu.lst.extra, and version files in $REM/new-iso
+function update_new_iso {
+	echo -e "Updating $REM/new-iso directory for new ISO"
+	DIR_DEVELOP=/home/$USERNAME/develop
+
+	rm $REM/new-iso/boot/grub/menu.lst
+	cp $DIR_DEVELOP/new-iso/files/boot_grub/menu.lst $REM/new-iso/boot/grub/menu.lst
+	chown root:root $REM/new-iso/boot/grub/menu.lst
+
+	rm $REM/new-iso/boot/grub/menu.lst.extra
+	cp $DIR_DEVELOP/new-iso/files/boot_grub/menu.lst.extra $REM/new-iso/boot/grub/menu.lst.extra
+	chown root:root $REM/new-iso/boot/grub/menu.lst.extra
+
+	rm $REM/new-iso/version
+	cp $DIR_DEVELOP/new-iso/files/version $REM/new-iso/version
+	chown root:root $REM/new-iso/version
+	
+	rm $REM/new-iso/boot/grub/message
+	cp $DIR_DEVELOP/new-iso/files/boot_grub/message $REM/new-iso/boot/grub
+	chown root:root $REM/new-iso/boot/grub/message
+
+	rm $REM/new-iso/boot/isolinux/bootlogo
+	cp $DIR_DEVELOP/new-iso/files/boot_isolinux/bootlogo $REM/new-iso/boot/isolinux
+	chown root:root $REM/new-iso/boot/isolinux/bootlogo
+	
+	rm $REM/new-iso/boot/isolinux/en.hlp
+	cp $DIR_DEVELOP/new-iso/files/boot_isolinux/en.hlp $REM/new-iso/boot/isolinux
+	chown root:root $REM/new-iso/boot/isolinux/en.hlp
+	
+	rm $REM/new-iso/boot/isolinux/isolinux.cfg
+	cp $DIR_DEVELOP/new-iso/files/boot_isolinux/isolinux.cfg $REM/new-iso/boot/isolinux
+	chown root:root $REM/new-iso/boot/isolinux/isolinux.cfg
+	
+	rm $REM/new-iso/boot/isolinux/languages
+	cp $DIR_DEVELOP/new-iso/files/boot_isolinux/languages $REM/new-iso/boot/isolinux
+	chown root:root $REM/new-iso/boot/isolinux/languages
+	
+	rm $REM/new-iso/boot/isolinux/message
+	cp $DIR_DEVELOP/new-iso/files/boot_isolinux/message $REM/new-iso/boot/isolinux
+	chown root:root $REM/new-iso/boot/isolinux/message
+
+	rm $REM/new-iso/boot/isolinux/af.hlp
+	rm $REM/new-iso/boot/isolinux/ar.hlp
+	rm $REM/new-iso/boot/isolinux/ca.hlp
+	rm $REM/new-iso/boot/isolinux/cs.hlp
+	rm $REM/new-iso/boot/isolinux/da.hlp
+	rm $REM/new-iso/boot/isolinux/de.hlp
+	rm $REM/new-iso/boot/isolinux/el.hlp
+	rm $REM/new-iso/boot/isolinux/es.hlp
+	rm $REM/new-iso/boot/isolinux/et.hlp
+	rm $REM/new-iso/boot/isolinux/fi.hlp
+	rm $REM/new-iso/boot/isolinux/fr.hlp
+	rm $REM/new-iso/boot/isolinux/gu.hlp 
+	rm $REM/new-iso/boot/isolinux/hr.hlp 
+	rm $REM/new-iso/boot/isolinux/hu.hlp
+	rm $REM/new-iso/boot/isolinux/it.hlp 
+	rm $REM/new-iso/boot/isolinux/ja.hlp
+	rm $REM/new-iso/boot/isolinux/ko.hlp
+	rm $REM/new-iso/boot/isolinux/ky.hlp
+	rm $REM/new-iso/boot/isolinux/lt.hlp
+	rm $REM/new-iso/boot/isolinux/mr.hlp 
+	rm $REM/new-iso/boot/isolinux/nb.hlp
+	rm $REM/new-iso/boot/isolinux/nl.hlp
+	rm $REM/new-iso/boot/isolinux/pa.hlp
+	rm $REM/new-iso/boot/isolinux/pl.hlp
+	rm $REM/new-iso/boot/isolinux/pt_BR.hlp
+	rm $REM/new-iso/boot/isolinux/pt.hlp
+	rm $REM/new-iso/boot/isolinux/ro.hlp
+	rm $REM/new-iso/boot/isolinux/ru.hlp
+	rm $REM/new-iso/boot/isolinux/sk.hlp
+	rm $REM/new-iso/boot/isolinux/sv.hlp
+	rm $REM/new-iso/boot/isolinux/th.hlp
+	rm $REM/new-iso/boot/isolinux/uk.hlp
+	rm $REM/new-iso/boot/isolinux/xh.hlp
+	rm $REM/new-iso/boot/isolinux/zh_CN.hlp
+	rm $REM/new-iso/boot/isolinux/zh_TW.hlp
+
 }
 
 # Mounts ISO named $1 to $REM/iso
@@ -328,17 +398,12 @@ function build {
 
 # Mounts filesystems and chroots to remastering environment, at exit unmounts all filesystems and perform cleanup for remastering environment
 function chroot_env {
-
-	# Begin Swift Linux code here.
 	# Before chroot operations, copy the development files to the new-squashfs directory.
 	# This is necessary to give the chroot environment access to the files in the
 	# /home/$USERNAME/develop directory.
 	echo "Copying the development files to the new-squashfs directory"
 
-	USERNAME=$(logname)
 	cp -r /home/$USERNAME/develop $REM/new-squashfs/usr/local/bin
-
-	# End Swift Linux code here.
 
 	mount_all $1
 
@@ -348,17 +413,14 @@ function chroot_env {
 	# echo -e "When done please type \"exit\" or press CTRL-D \n"
 	# set_chroot_commands $1
 
-	# Begin Swift Linux code here.
 	# Note that the above few lines are commented to bypass the manual process.
 
-	DIR_DEVELOP=/usr/local/bin/develop # The location of the develop directory for
-	# the chroot environment.
-	chroot $1 sh $DIR_DEVELOP/1-build/shared-diet.sh # Creates Swift Linux in the
+	chroot $1
+	chroot $1 sh /usr/local/bin/develop/1-build/shared-diet.sh # Creates Swift Linux in the
 	# chroot environment
-	# End Swift Linux code here.
 	
 	umount_all $1
-	cleanup $1
+	# cleanup $1
 }
 
 # Execute commands automatically after you enter the chroot environment and at log out. 
@@ -427,7 +489,6 @@ function set_iso_path {
 }
 
 function set_iso_name {
-	# BEGIN Swift Linux code
 	ISONAME="remastered.iso" # Name of ISO file is set as remastered.iso .
 	ISONAME=$ISOPATH/$ISONAME # Revised to include the full path name.
 	# You can rename the ISO file manually AFTER the remastering process is complete.
@@ -443,7 +504,6 @@ function set_iso_name {
 		# echo -n "File exists, overwrite"
 		# Y_or_n || set_iso_name
 	# fi
-	# End Swift Linux code
 }
 
 # Create new squashfs in the new-iso
@@ -592,13 +652,14 @@ fs_configured squashfs || modprobe squashfs || {
 }
 
 # Initializing variables
-STARTPATH=$PWD
+STARTPATH=/usr/local/bin # instead of $PWD
 ERROR=false
 BUILD=false
 CHROOT=false
 HD=false
 GENERIC=false
 CUSTOM=false
+USERNAME=$(logname)
 
 # Captures command line options:
 for args; do
@@ -661,7 +722,8 @@ $BUILD && {
 get_iso_path $1 # Revised for Swift Linux
 set_host_path # Revised for Swift Linux
 create_remaster_env
+update_new_iso
 chroot_env new-squashfs
 # ready? # Manual procedure bypassed
 build new-squashfs
-
+echo "Please unmount the antiX Linux ISO from the CD drive."
