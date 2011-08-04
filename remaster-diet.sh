@@ -462,6 +462,7 @@ function edit_version_file {
 # Set ISO path
 function set_iso_path {
 	cd $STARTPATH
+	ISOPATH=$REM
 	echo -e "The ISO file will be placed by default in \"$REM\" directory. \n"
 	# The following lines are bypassed in the interest of automation.
 	# echo -n "Is that OK"
