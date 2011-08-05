@@ -7,6 +7,32 @@
 # The critical lines for Swift Linux follow the line containing the following text:
 # Execute if script is NOT called with --build-iso, --chroot, --from-hdd arguments
 
+# The major steps for remastering Swift Linux:
+# 1.  Initializing variables 
+#     (STARTPATH, ERROR, BUILD, CHROOT, HD, GENERIC, CUSTOM, and USERNAME)
+# 2.  get_iso_path: Sets the path name of the antiX Linux ISO file (/dev/cdrom)
+# 3.  set_host_path: Sets HOSTPATH as $STARTPATH.
+# 4.  create_host_dir: Sets REM as $HOSTPATH/remaster.
+# 5A.  create_remaster_env: creates directories for remastering
+#     ($REM/iso, $REM/squashfs, $REM/new-squashfs, $REM/new-iso)
+# 5B.  mount_iso: Copy the contents of the antiX Linux ISO to $REM/iso
+# 5C.  copy_iso: Copy the contents of $REM/iso to $REM/new-iso
+# 5D.  mount_compressed_fs: Copies the full directory structure of the antiX Linux ISO to
+#      $REM/squashfs
+# 5E.  Copy $REM/squashfs to $REM/new-squashfs
+# 6.  update_new_iso: Updates $REM/new-iso to include changes to the antiX Linux live CD
+#     needed for the Swift Linux live CD
+# 7A.  chroot_env newsquashfs: Copy files from /home/$USERNAME/develop to $REM/new-squashfs
+#      so that the Swift Linux scripts can be used in the chroot procedure
+# 7B.  mount_all: sets up the chroot environment in $REM/new-squashfs
+# 7C.  Execute the Swift Linux scripts within the chroot environment (/ = $REM/new-squashfs)
+# 7D.  umount_all: removes the chroot environment in $REM/new-squashfs
+# 8.  build new-squashfs: Create ISO file from the contents of the new-squashfs directory.
+# 8A.  set_iso_path: Sets ISOPATH=$REM, the location of the ISO file
+# 8B.  set_iso_name: Sets the ISO file name as "remastered.iso".
+# 8C.  make_squashfs $1: Creates the file within new-iso/antiX/antiX
+# 8D.  make_iso $ISONAME: Creates the ISO file based on the above file within make_squashfs.
+
 # -------------------------------------------------------------------------------------- #
 # Script:    remaster.sh                                                                 #
 # Details:   remasters antiX and possibly other Live CDs created with SquashFS           #
@@ -389,7 +415,7 @@ function cleanup {
 
 # Builds squashfs from $1 folder and then makes the new ISO
 function build { 
-	edit_version_file
+	# edit_version_file
 	set_iso_path
 	set_iso_name
 	make_squashfs $1
@@ -415,7 +441,7 @@ function chroot_env {
 
 	# Note that the above few lines are commented to bypass the manual process.
 
-	chroot $1
+	# chroot $1 # Remove first # in this line to pause the action
 	chroot $1 sh /usr/local/bin/develop/1-build/shared-diet.sh # Creates Swift Linux in the
 	# chroot environment
 	
