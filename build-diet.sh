@@ -22,4 +22,6 @@ read CD
 
 su -c "sh $DIR_DEVELOP/1-build/get_reps_diet.sh" $USERNAME
 
-bash $DIR_DEVELOP/1-build/remaster-diet.sh
+rm -r $DIR_DEVELOP/tmp
+su -c "mkdir $DIR_DEVELOP/temp" $USERNAME
+bash $DIR_DEVELOP/1-build/remaster-diet.sh | $DIR_DEVELOP/temp/screenoutput.txt
