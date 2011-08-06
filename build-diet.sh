@@ -24,4 +24,4 @@ su -c "sh $DIR_DEVELOP/1-build/get_reps_diet.sh" $USERNAME
 
 rm -r $DIR_DEVELOP/temp
 su -c "mkdir $DIR_DEVELOP/temp" $USERNAME
-bash $DIR_DEVELOP/1-build/remaster-diet.sh | $DIR_DEVELOP/temp/screenoutput.txt
+bash $DIR_DEVELOP/1-build/remaster-diet.sh | tee $DIR_DEVELOP/temp/screenoutput.txt
