@@ -27,6 +27,7 @@
 # 7B.  mount_all: sets up the chroot environment in $REM/new-squashfs
 # 7C.  Execute the Swift Linux scripts within the chroot environment (/ = $REM/new-squashfs)
 # 7D.  umount_all: removes the chroot environment in $REM/new-squashfs
+# 7E.  Remove /usr/local/bin/develop from $REM/new-squashfs
 # 8.  build new-squashfs: Create ISO file from the contents of the new-squashfs directory.
 # 8A.  set_iso_path: Sets ISOPATH=$REM, the location of the ISO file
 # 8B.  set_iso_name: Sets the ISO file name as "remastered.iso".
@@ -446,6 +447,10 @@ function chroot_env {
 	# chroot environment
 	
 	umount_all $1
+
+	echo "Removing the development files from the new-squashfs directory"
+	rm -r $REM/new-squashfs/usr/local/bin/develop
+	
 	# cleanup $1
 }
 
