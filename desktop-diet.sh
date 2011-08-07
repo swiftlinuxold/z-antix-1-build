@@ -13,7 +13,7 @@ fi
 USERNAME=$(logname)
 DIR_DEVELOP=/home/$USERNAME/develop
 
-su -c "sh $DIR_DEVELOP/1-build/get_reps_diet.sh" $USERNAME
+su -c "sh $DIR_DEVELOP/1-build/preinstall-diet.sh" $USERNAME
 
 rm -r $DIR_DEVELOP/temp
 su -c "mkdir $DIR_DEVELOP/temp" $USERNAME
