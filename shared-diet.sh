@@ -33,14 +33,17 @@ sh $DIR_DEVELOP/conky/main.sh
 sh $DIR_DEVELOP/control_center/main.sh
 sh $DIR_DEVELOP/iceape/main.sh
 sh $DIR_DEVELOP/icewm/main.sh
+sh $DIR_DEVELOP/installer/main.sh
 sh $DIR_DEVELOP/mime/main.sh
-sh $DIR_DEVELOP/remove_languages/main.sh
-sh $DIR_DEVELOP/remove_packages/main.sh
 sh $DIR_DEVELOP/rox/main.sh
 sh $DIR_DEVELOP/security/main.sh
 sh $DIR_DEVELOP/slim/main.sh
 sh $DIR_DEVELOP/sylpheed/main.sh
 sh $DIR_DEVELOP/wallpaper-standard/main.sh
+
+sh $DIR_DEVELOP/remove_languages/main.sh
+sh $DIR_DEVELOP/remove_packages/main.sh
+
 
 sh $DIR_DEVELOP/1-build/remove_deb.sh # Removes stored *.deb files, must be executed last
 
