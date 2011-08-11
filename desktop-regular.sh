@@ -13,8 +13,8 @@ fi
 USERNAME=$(logname)
 DIR_DEVELOP=/home/$USERNAME/develop
 
-su -c "sh $DIR_DEVELOP/1-build/preinstall-diet.sh" $USERNAME
+su -c "sh $DIR_DEVELOP/1-build/preinstall-regular.sh" $USERNAME
 
 rm -r $DIR_DEVELOP/temp
 su -c "mkdir $DIR_DEVELOP/temp" $USERNAME
-sh $DIR_DEVELOP/1-build/shared-diet.sh | tee $DIR_DEVELOP/temp/screenoutput.txt
+sh $DIR_DEVELOP/1-build/shared-regular.sh | tee $DIR_DEVELOP/temp/screenoutput.txt

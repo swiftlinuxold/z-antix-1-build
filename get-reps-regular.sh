@@ -10,7 +10,7 @@ fi
 USERNAME=$(logname)
 DIR_DEVELOP=/home/$USERNAME/develop
 
-# This is the script for obtaining all of the repositories needed to generate Diet Swift Linux.
+# This is the script for obtaining all of the repositories needed to generate Regular Swift Linux.
 
 get_rep ()
 	{
@@ -56,27 +56,9 @@ fi
 ssh-add -l
 
 # ssh-agent is now implemented.  Now it's time to download all repositories.
-
-get_rep 0-intro
-get_rep add_help
-get_rep apt
-get_rep conky
-get_rep control_center
-get_rep iceape
-get_rep icewm
-get_rep installer
-get_rep menu-update
-get_rep mime
-get_rep new-iso
-get_rep remove_languages
-get_rep remove_packages
-get_rep rox
-get_rep security
-get_rep slim
-get_rep sylpheed
-get_rep wallpaper-standard
+sh $DIR_DEVELOP/1-build/get-reps-diet.sh
+get_rep regular
+get_rep forensic
 
 # Now that the repositories are downloaded, it's time to delete the saved passwords.
 rm -r /tmp/ssh*
-
-exit 0

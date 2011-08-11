@@ -11,9 +11,8 @@ USERNAME=$(logname)
 DIR_DEVELOP=/home/$USERNAME/develop
 
 # This is the script that prepares for the transformation from antiX Linux
-# to Swift Linux
+# to Regular Swift Linux
 
-sh $DIR_DEVELOP/1-build/get-reps-diet.sh
-sh $DIR_DEVELOP/installer/compile.sh
+sh $DIR_DEVELOP/1-build/get-reps-regular.sh
 
 exit 0
