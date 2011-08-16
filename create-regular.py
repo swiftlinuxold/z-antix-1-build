@@ -17,7 +17,9 @@ def change_text (filename, text_old, text_new):
 	open(filename, "w").write(text)
 	
 def copy_file (file_old, file_new, text_old, text_new):
-	os.remove (file_new)
+	ret = os.access(file_new, os.F_OK)
+	if (ret):
+		os.remove (file_new)
 	shutil.copy2 (file_old, file_new)
 	change_text(file_new, text_old, text_new)
 	
@@ -42,3 +44,10 @@ text2 = text2 + 'get_rep forensic\n\n'
 text2 = text2 + text1
 copy_file (file_diet, file_regular, text1, text2)
 
+file_diet = dir_build+'/shared-diet.sh'
+file_regular = dir_build+'/shared-regular.sh'
+text1 = 'sh $DIR_DEVELOP/1-build/remove_deb.sh'
+text2 = 'sh $DIR_DEVELOP/regular/main.sh\n'
+text2 = text2 + 'sh $DIR_DEVELOP/remove_languages/main.sh\n\n'
+text2 = text2 + text1
+copy_file (file_diet, file_regular, text1, text2)
