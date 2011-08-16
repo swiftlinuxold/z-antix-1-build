@@ -69,12 +69,22 @@ if (is_chroot):
 
 print 'Changing IceWM'
 if (not(is_chroot)):
-    text=open('/home/'+username+'/.conkyrc', 'r').read()
-    text = text.replace("Regular", "Taylor") 
-    open('/home/'+username+'/.conkyrc', "w").write(text)
+    text=open('/home/'+username+'/.icewm/startup', 'r').read()
+    text_old='rox --pinboard=antiX-ice &'
+    text_new=text_old+'\n\n'
+    text_new=text_old+'# Play startup sound clip\n'
+    text_new=text_old+'mpg123 /usr/share/sounds/sound-taylorswift.mp3'
+    
+    text = text.replace(text_old, text_new) 
+    open('/home/'+username+'/.icewm/startup', "w").write(text)
 
-text=open('/etc/skel/.conkyrc', 'r').read()
-text = text.replace("Regular", "Taylor") 
-open('/etc/skel/.conkyrc', "w").write(text)
+
+text=open('/etc/skel/.icewm/startup', 'r').read()
+text_old='rox --pinboard=antiX-ice &'
+text_new=text_old+'\n\n'
+text_new=text_old+'# Play startup sound clip\n'
+text_new=text_old+'mpg123 /usr/share/sounds/sound-taylorswift.mp3'
+
+text = text.replace(text_old, text_new) 
 	
 
