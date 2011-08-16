@@ -29,6 +29,7 @@ sh $DIR_DEVELOP/1-build/shared-diet.sh
 sh $DIR_DEVELOP/regular/main.sh
 sh $DIR_DEVELOP/remove_languages/main.sh
 
-sh $DIR_DEVELOP/1-build/remove_deb.sh # Removes stored *.deb files, must be executed last
+# Remove stored *.deb files, must be executed after all packages are installed
+sh $DIR_DEVELOP/1-build/remove_deb.sh 
 
 exit 0
