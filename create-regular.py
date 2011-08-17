@@ -60,3 +60,4 @@ text2 = text2 + 'python $DIR_DEVELOP/regular/mime.py\n'
 text2 = text2 + 'python $DIR_DEVELOP/regular/rox.py\n\n'
 text2 = text2 + text1
 copy_file (file_diet, file_regular, text1, text2)
+change_text(file_regular, 'preinstall-diet.sh', 'preinstall-regular.sh')

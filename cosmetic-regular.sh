@@ -15,6 +15,8 @@ DIR_DEVELOP=/home/$USERNAME/develop
 # This script is used for testing the details of special editions.
 # (These details are Conky, IceWM, ROX, SLiM, sound, and the wallpaper.)
 
+su -c "sh $DIR_DEVELOP/1-build/preinstall-diet.sh" $USERNAME
+
 sh $DIR_DEVELOP/conky/main.sh
 sh $DIR_DEVELOP/icewm/main.sh
 sh $DIR_DEVELOP/installer/main.sh

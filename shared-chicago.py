@@ -84,6 +84,7 @@ text_old='rox --pinboard=antiX-ice &'
 text_new=text_old+'\n\n'
 text_new=text_old+'# Play startup sound clip\n'
 text_new=text_old+'mpg123 /usr/share/sounds/sound-chicago.mp3\n\n'
+
 text = text.replace(text_old, text_new) 
 	
 
