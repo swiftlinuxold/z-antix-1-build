@@ -20,8 +20,8 @@ echo "This mounts the virtual antiX Linux CD."
 echo "Press Enter when you are finished." 
 read CD
 
-su -c "sh $DIR_DEVELOP/1-build/preinstall-regular.sh" $USERNAME
+su -c "sh $DIR_DEVELOP/1-build/preinstall-chicago.sh" $USERNAME
 
 rm -r $DIR_DEVELOP/temp
 su -c "mkdir $DIR_DEVELOP/temp" $USERNAME
-bash $DIR_DEVELOP/1-build/remaster-regular.sh | tee $DIR_DEVELOP/temp/screenoutput.txt
+bash $DIR_DEVELOP/1-build/remaster-chicago.sh | tee $DIR_DEVELOP/temp/screenoutput.txt

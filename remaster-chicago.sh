@@ -443,7 +443,7 @@ function chroot_env {
 	# Note that the above few lines are commented to bypass the manual process.
 
 	# chroot $1 # Remove first # in this line to pause the action
-	chroot $1 python /usr/local/bin/develop/1-build/shared-chicago.py # Creates Swift Linux in the
+	chroot $1 sh /usr/local/bin/develop/1-build/shared-chicago.sh # Creates Swift Linux in the
 	# chroot environment
 	
 	umount_all $1

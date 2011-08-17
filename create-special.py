@@ -44,6 +44,13 @@ def copy_file_1build (name, name_full):
 	copy_file (file1, file2, text1, text2)
 	change_text(file2, 'NAME_SPECIAL', name_full)
 	
+	file1=dir_build+'/shared-regular.sh'
+	file2=dir_build+'/shared-'+name+'.sh'
+	text1 = 'exit 0'
+	text2 = 'python $DIR_DEVELOP/1-build/shared-'+name+'.py\n\n'
+	text2 = text2 + text1
+	copy_file (file1, file2, text1, text2)
+	
 	file1=dir_build+'/desktop-regular.sh'
 	file2=dir_build+'/desktop-'+name+'.sh'
 	text1='regular'
@@ -52,14 +59,15 @@ def copy_file_1build (name, name_full):
 	
 	file1=dir_build+'/build-regular.sh'
 	file2=dir_build+'/build-'+name+'.sh'
-	text1='sh $DIR_DEVELOP/1-build/shared-regular.sh'
-	text2='python $DIR_DEVELOP/1-build/shared-'+name+'.py'
+	text1='remaster-regular.sh'
+	text2='remaster-'+name+'.sh'
 	copy_file (file1, file2, text1, text2)
+	change_text (file2, 'preinstall-regular.sh', 'preinstall-'+name+'.sh')
 	
 	file1=dir_build+'/remaster-regular.sh'
 	file2=dir_build+'/remaster-'+name+'.sh'
-	text1='chroot $1 sh /usr/local/bin/develop/1-build/shared-regular.sh'
-	text2='chroot $1 python /usr/local/bin/develop/1-build/shared-'+name+'.py'
+	text1='shared-regular.sh'
+	text2='shared-'+name+'.sh'
 	copy_file (file1, file2, text1, text2)
 	
 copy_file_1build ('taylorswift', 'Taylor Swift Linux')
