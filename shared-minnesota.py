@@ -74,7 +74,6 @@ if (not(is_chroot)):
     text_new=text_old+'\n\n'
     text_new=text_new+'# Play startup sound clip\n'
     text_new=text_new+'mpg123 /usr/share/sounds/sound-minnesota.mp3\n\n'
-    
     text = text.replace(text_old, text_new) 
     open('/home/'+username+'/.icewm/startup', "w").write(text)
 
@@ -84,7 +83,6 @@ text_old='rox --pinboard=antiX-ice &'
 text_new=text_old+'\n\n'
 text_new=text_new+'# Play startup sound clip\n'
 text_new=text_new+'mpg123 /usr/share/sounds/sound-minnesota.mp3\n\n'
-
 text = text.replace(text_old, text_new) 
-	
+open('/etc/skel/.icewm/startup', "w").write(text)
 
