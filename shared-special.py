@@ -73,7 +73,7 @@ if (not(is_chroot)):
     text_old='rox --pinboard=antiX-ice &'
     text_new=text_old+'\n\n'
     text_new=text_old+'# Play startup sound clip\n'
-    text_new=text_old+'mpg123 /usr/share/sounds/sound-special.mp3'
+    text_new=text_old+'mpg123 /usr/share/sounds/sound-special.mp3\n\n'
     
     text = text.replace(text_old, text_new) 
     open('/home/'+username+'/.icewm/startup', "w").write(text)
@@ -81,9 +81,9 @@ if (not(is_chroot)):
 
 text=open('/etc/skel/.icewm/startup', 'r').read()
 text_old='rox --pinboard=antiX-ice &'
-text_new=text_old+'\n\n'
-text_new=text_new+'# Play startup sound clip\n'
-text_new=text_new+'mpg123 /usr/share/sounds/sound-special.mp3'
+    text_new=text_old+'\n\n'
+    text_new=text_old+'# Play startup sound clip\n'
+    text_new=text_old+'mpg123 /usr/share/sounds/sound-special.mp3\n\n'
 
 text = text.replace(text_old, text_new) 
 	
