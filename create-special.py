@@ -78,8 +78,8 @@ def copy_file_1build (name, name_full):
 	copy_file (file1, file2, text1, text2)
 	change_text(file2, 'preinstall-regular.sh', 'preinstall-'+name+'.sh')
 	
-	file_diet = dir_build+'/cosmetic-diet.sh'
-	file_regular = dir_build+'/cosmetic-regular.sh'
+	file_diet = dir_build+'/cosmetic-regular.sh'
+	file_regular = dir_build+'/cosmetic-'+name+'.sh'
 	text1 = 'exit 0'
 	text2 = 'python $DIR_DEVELOP/regular/conky.py\n'
 	text2 = text2 + 'python $DIR_DEVELOP/regular/mime.py\n'
