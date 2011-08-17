@@ -26,6 +26,6 @@ python $DIR_DEVELOP/regular/conky.py
 python $DIR_DEVELOP/regular/mime.py
 python $DIR_DEVELOP/regular/rox.py
 
-python $DIR_DEVELOP/1-build/cosmetic-taylorswift.py
+python $DIR_DEVELOP/1-build/shared-taylorswift.py
 
 exit 0
