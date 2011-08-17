@@ -15,7 +15,7 @@ DIR_DEVELOP=/home/$USERNAME/develop
 # This script is used for testing the details of special editions.
 # (These details are Conky, IceWM, ROX, SLiM, sound, and the wallpaper.)
 
-su -c "sh $DIR_DEVELOP/1-build/preinstall-regular.sh" $USERNAME
+su -c "sh $DIR_DEVELOP/1-build/preinstall-chicago.sh" $USERNAME
 
 sh $DIR_DEVELOP/conky/main.sh
 sh $DIR_DEVELOP/icewm/main.sh
@@ -27,6 +27,8 @@ sh $DIR_DEVELOP/wallpaper-standard/main.sh
 python $DIR_DEVELOP/regular/conky.py
 python $DIR_DEVELOP/regular/mime.py
 python $DIR_DEVELOP/regular/rox.py
+
+python $DIR_DEVELOP/1-build/shared-chicago.py
 
 python $DIR_DEVELOP/regular/conky.py
 python $DIR_DEVELOP/regular/mime.py
