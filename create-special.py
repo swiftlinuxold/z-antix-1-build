@@ -25,42 +25,45 @@ def copy_file (file_old, file_new, text_old, text_new):
 	shutil.copy2 (file_old, file_new)
 	change_text(file_new, text_old, text_new)
 	
-def copy_file_1build (name_sp):
+def copy_file_1build (name, name_full):
+	# name is all-lowercase (taylorswift, minnesota, chicago)
+	# name_full is the full name (Taylor Swift Linux, Minnesota Swift Linux,
+	# Chicago Swift Linux)
 	file1=dir_build+'/preinstall-regular.sh'
-	file2=dir_build+'/preinstall-'+name_sp+'.sh'
+	file2=dir_build+'/preinstall-'+name+'.sh'
 	text1='rm -r /tmp/ssh*'
-	text2='get_rep sound-'+name_sp+'\n'
-	text2=text2+'get_rep wallpaper-'+name_sp+'\n'
+	text2='get_rep sound-'+name+'\n'
+	text2=text2+'get_rep wallpaper-'+name+'\n'
 	text2=text2+text1
 	copy_file (file1, file2, text1, text2)
 	
+	file1=dir_build+'/shared-special.py'
+	file2=dir_build+'/shared-'+name+'.py'
+	text1='special'
+	text2=name
+	copy_file (file1, file2, text1, text2)
+	change_text(file2, 'NAME_SPECIAL', name_full)
+	
 	file1=dir_build+'/desktop-regular.sh'
-	file2=dir_build+'/desktop-'+name_sp+'.sh'
+	file2=dir_build+'/desktop-'+name+'.sh'
 	text1='regular'
-	text2=name_sp
+	text2=name
+	copy_file (file1, file2, text1, text2)
+	
+	file1=dir_build+'/build-regular.sh'
+	file2=dir_build+'/build-'+name+'.sh'
+	text1='sh $DIR_DEVELOP/1-build/shared-regular.sh'
+	text2='python $DIR_DEVELOP/1-build/shared-'+name+'.py'
 	copy_file (file1, file2, text1, text2)
 	
 	file1=dir_build+'/remaster-regular.sh'
-	file2=dir_build+'/remaster-'+name_sp+'.sh'
-	text1='regular'
-	text2=name_sp
+	file2=dir_build+'/remaster-'+name+'.sh'
+	text1='chroot $1 sh /usr/local/bin/develop/1-build/shared-regular.sh'
+	text2='chroot $1 python /usr/local/bin/develop/1-build/shared-'+name+'.py'
 	copy_file (file1, file2, text1, text2)
 	
-#def copy_file_shared (name_sp, name_sp_long):
-	
+copy_file_1build ('taylorswift', 'Taylor Swift Linux')
+copy_file_1build ('minnesota', 'Minnesota Swift Linux')
+copy_file_1build ('chicago', 'Chicago Swift Linux')
 
-copy_file_1build ('taylorswift')
-copy_file_1build ('minnesota')
-copy_file_1build ('chicago')
 
-	# FOR shared-xxx: have shared-special.sh file, use copy_file to change
-	
-	#file1=dir_build+'/shared-regular.sh'
-	#file2=dir_build+'/shared-'+name_sp+'.sh'
-	#text1='sh $DIR_DEVELOP/1-build/remove_deb.sh'
-	#text2=text1
-	# Copy sound
-	# Copy wallpaper
-	# Change Conky
-	# Change IceWM
-	# Change ROX

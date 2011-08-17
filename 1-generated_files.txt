@@ -7,6 +7,7 @@ Original files:
 4.  remaster-diet.sh
 5.  shared-diet.sh
 6.  remove_deb.sh
+7.  shared-special.py
 
 Note that all but one of these original files are all Diet Swift Linux scripts.  
 The exception is remove_deb.sh.
@@ -16,8 +17,28 @@ The scripts that generate files are:
 2.  create-special.py
 
 The files generated through a combination of the scripts and the original files are:
-1.  build-regular.sh
-2.  desktop-regular.sh
-3.  remaster-regular.sh
-4.  preinstall-regular.sh
-5.  shared-regular.sh
+
+build-regular.sh
+build-taylorswift.sh
+build-minnesota.sh
+build-chicago.sh
+
+desktop-regular.sh
+desktop-taylorswift.sh
+desktop-minnesota.sh
+desktop-chicago.sh
+
+preinstall-regular.sh
+preinstall-taylorswift.sh
+preinstall-minnesota.sh
+preinstall-chicago.sh
+
+remaster-regular.sh
+remaster-taylorswift.sh
+remaster-minnesota.sh
+remaster-chicago.sh
+
+shared-regular.sh
+shared-taylorswift.py
+shared-minnesota.py
+shared-chicago.py

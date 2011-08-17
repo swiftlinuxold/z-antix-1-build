@@ -1,6 +1,28 @@
 Installing Diet Swift Linux on the desktop:
+su
 sh desktop-diet.sh
 
 Creating the Diet Swift Linux ISO:
+su
 sh build-diet.sh
 
+Installing Regular Swift Linux on the desktop:
+python create-regular.py
+su
+sh desktop-regular.sh
+ 
+Creating the Regular Swift Linux ISO:
+python create-regular.py
+su
+sh build-regular.sh
+
+Installing Special Edition Swift Linux on the desktop:
+(NOTE: abc - taylorswift, minnesota, or chicago)
+python create-special.py
+su
+sh desktop-abc.sh
+
+Creating the Special Edition Swift Linux ISO:
+python create-special.py
+su
+sh build-abc.sh
