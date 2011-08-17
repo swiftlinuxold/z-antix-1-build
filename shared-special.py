@@ -18,34 +18,34 @@ else:
 	dir_develop='/home/'+username+'/develop'
 	
 print '***********************************************************************'
-print 'CREATING Taylor Swift Linux\n'
+print 'CREATING NAME_SPECIAL\n'
 print 'Copying files'
 	
 # Copying ROX wallpaper to /usr/share/wallpaper/
-jpg1 = dir_develop + '/wallpaper-taylorswift/rox-taylorswift.jpg'
+jpg1 = dir_develop + '/wallpaper-special/rox-special.jpg'
 jpg2 = '/usr/share/wallpaper/'
 shutil.copy2 (jpg1, jpg2)
 
 # Copying ROX wallpaper to /home/username/Wallpaper
 if (not(is_chroot)):
-	jpg1 = 	dir_develop + '/wallpaper-taylorswift/rox-taylorswift.jpg'
+	jpg1 = 	dir_develop + '/wallpaper-special/rox-special.jpg'
 	jpg2 = '/home/'+username+'/Wallpaper'
 	shutil.copy2 (jpg1, jpg2)
 	
 # Copying SLiM wallpaper to /usr/share/slim/themes/antiX/
-jpg1 = dir_develop + '/wallpaper-taylorswift/login-taylorswift.jpg'
+jpg1 = dir_develop + '/wallpaper-special/login-special.jpg'
 jpg2 = '/usr/share/slim/themes/antiX/background.jpg'
 shutil.copy2 (jpg1, jpg2)
 
 # Copying sound clip to /usr/share/sounds
-s1 = dir_develop + '/sound-taylorswift/sound-taylorswift.mp3'
+s1 = dir_develop + '/sound-special/sound-special.mp3'
 s2 = '/usr/share/sounds'
 shutil.copy2 (s1, s2)
 
 print 'Changing Conky'
 if (not(is_chroot)):
     text=open('/home/'+username+'/.conkyrc', 'r').read()
-    text = text.replace("Regular", "Taylor") 
+    text = text.replace("Regular Swift Linux", "NAME_SPECIAL") 
     open('/home/'+username+'/.conkyrc', "w").write(text)
 
 text=open('/etc/skel/.conkyrc', 'r').read()
@@ -57,7 +57,7 @@ def change_text (pathdir):
 	file_pb=pathdir+'/pb_antiX-ice'
 	text=open(file_pb, 'r').read()
 	text_old='rox-swiftlinux.jpg'
-	text_new='rox-taylorswift.jpg'
+	text_new='rox-special.jpg'
 	text=text.replace(text_old, text_new)
 	open (file_pb, 'w').write(text)
 
@@ -73,7 +73,7 @@ if (not(is_chroot)):
     text_old='rox --pinboard=antiX-ice &'
     text_new=text_old+'\n\n'
     text_new=text_old+'# Play startup sound clip\n'
-    text_new=text_old+'mpg123 /usr/share/sounds/sound-taylorswift.mp3'
+    text_new=text_old+'mpg123 /usr/share/sounds/sound-special.mp3'
     
     text = text.replace(text_old, text_new) 
     open('/home/'+username+'/.icewm/startup', "w").write(text)
@@ -83,7 +83,7 @@ text=open('/etc/skel/.icewm/startup', 'r').read()
 text_old='rox --pinboard=antiX-ice &'
 text_new=text_old+'\n\n'
 text_new=text_old+'# Play startup sound clip\n'
-text_new=text_old+'mpg123 /usr/share/sounds/sound-taylorswift.mp3'
+text_new=text_old+'mpg123 /usr/share/sounds/sound-special.mp3'
 
 text = text.replace(text_old, text_new) 
 	

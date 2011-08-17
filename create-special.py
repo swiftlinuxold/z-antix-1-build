@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import sys, commands # Allows checking for root
-import os # Needed for removing files
+import os, os.path # Needed for removing files
 import shutil # Needed for copying files
 
 username = commands.getoutput( "whoami" )
@@ -11,7 +11,7 @@ if username == 'root':
 dir_develop='/home/'+username+'/develop'
 dir_build=dir_develop+'/1-build'
 
-python dir_build+'/create-regular.py'
+os.system ('python '+dir_build+'/create-regular.py')
 
 def change_text (filename, text_old, text_new):
 	text=open(filename, 'r').read()
@@ -19,11 +19,13 @@ def change_text (filename, text_old, text_new):
 	open(filename, "w").write(text)
 	
 def copy_file (file_old, file_new, text_old, text_new):
-	os.remove (file_new)
+	ret = os.access(file_new, os.F_OK)
+	if (ret):
+		os.remove (file_new)
 	shutil.copy2 (file_old, file_new)
 	change_text(file_new, text_old, text_new)
 	
-def copy_file_1-build (name_sp):
+def copy_file_1build (name_sp):
 	file1=dir_build+'/preinstall-regular.sh'
 	file2=dir_build+'/preinstall-'+name_sp+'.sh'
 	text1='rm -r /tmp/ssh*'
@@ -47,9 +49,9 @@ def copy_file_1-build (name_sp):
 #def copy_file_shared (name_sp, name_sp_long):
 	
 
-copy_file_1-build ('taylorswift')
-copy_file_1-build ('minnesota')
-copy_file_1-build ('chicago')
+copy_file_1build ('taylorswift')
+copy_file_1build ('minnesota')
+copy_file_1build ('chicago')
 
 	# FOR shared-xxx: have shared-special.sh file, use copy_file to change
 	
