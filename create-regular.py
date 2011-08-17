@@ -51,3 +51,12 @@ text2 = 'sh $DIR_DEVELOP/regular/main.sh\n'
 text2 = text2 + 'sh $DIR_DEVELOP/remove_languages/main.sh\n\n'
 text2 = text2 + text1
 copy_file (file_diet, file_regular, text1, text2)
+
+file_diet = dir_build+'/cosmetic-diet.sh'
+file_regular = dir_build+'/cosmetic-regular.sh'
+text1 = 'exit 0'
+text2 = 'python $DIR_DEVELOP/regular/conky.py\n'
+text2 = text2 + 'python $DIR_DEVELOP/regular/mime.py\n'
+text2 = text2 + 'python $DIR_DEVELOP/regular/rox.py\n\n'
+text2 = text2 + text1
+copy_file (file_diet, file_regular, text1, text2)

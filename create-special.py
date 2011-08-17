@@ -70,6 +70,13 @@ def copy_file_1build (name, name_full):
 	text2='shared-'+name+'.sh'
 	copy_file (file1, file2, text1, text2)
 	
+	file1=dir_build+'/cosmetic-regular.sh'
+	file2=dir_build+'/cosmetic-'+name+'.sh'
+	text1='exit 0'
+	text2='python $DIR_DEVELOP/1-build/cosmetic-'+name+'.py\n\n'
+	text2=text2+text1
+	copy_file (file1, file2, text1, text2)
+	
 copy_file_1build ('taylorswift', 'Taylor Swift Linux')
 copy_file_1build ('minnesota', 'Minnesota Swift Linux')
 copy_file_1build ('chicago', 'Chicago Swift Linux')
