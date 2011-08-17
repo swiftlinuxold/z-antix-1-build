@@ -1,10 +1,12 @@
+(NOTE: abc - diet, regular, taylorswift, minnesota, or chicago)
+
 Installing Diet Swift Linux on the desktop:
 su
-sh desktop-diet.sh
+sh desktop-abc.sh
 
 Creating the Diet Swift Linux ISO:
 su
-sh build-diet.sh
+sh build-abc.sh
 
 Installing Regular Swift Linux on the desktop:
 python create-regular.py
@@ -23,6 +25,10 @@ su
 sh desktop-abc.sh
 
 Creating the Special Edition Swift Linux ISO:
+
 python create-special.py
 su
 sh build-abc.sh
+
+cosmetic-*.sh files only change the superficial elements (wallpaper, sound, Conky, IceWM, and ROX).
+The purpose of the cosmetic-*.sh files is to test the special editions of Swift Linux.
