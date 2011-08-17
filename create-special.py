@@ -78,14 +78,12 @@ def copy_file_1build (name, name_full):
 	copy_file (file1, file2, text1, text2)
 	change_text(file2, 'preinstall-regular.sh', 'preinstall-'+name+'.sh')
 	
-	file_diet = dir_build+'/cosmetic-regular.sh'
-	file_regular = dir_build+'/cosmetic-'+name+'.sh'
 	text1 = 'exit 0'
 	text2 = 'python $DIR_DEVELOP/regular/conky.py\n'
 	text2 = text2 + 'python $DIR_DEVELOP/regular/mime.py\n'
 	text2 = text2 + 'python $DIR_DEVELOP/regular/rox.py\n\n'
 	text2 = text2 + text1
-	copy_file (file_diet, file_regular, text1, text2)
+	change_text(file2, text1, text2)
 	
 copy_file_1build ('taylorswift', 'Taylor Swift Linux')
 copy_file_1build ('minnesota', 'Minnesota Swift Linux')
