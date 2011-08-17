@@ -45,11 +45,11 @@ shutil.copy2 (s1, s2)
 print 'Changing Conky'
 if (not(is_chroot)):
     text=open('/home/'+username+'/.conkyrc', 'r').read()
-    text = text.replace("Regular Swift Linux", "NAME_SPECIAL") 
+    text = text.replace('Regular Swift Linux', 'NAME_SPECIAL') 
     open('/home/'+username+'/.conkyrc', "w").write(text)
 
 text=open('/etc/skel/.conkyrc', 'r').read()
-text = text.replace("Regular", "Taylor") 
+text = text.replace('Regular Swift Linux', 'NAME_SPECIAL') 
 open('/etc/skel/.conkyrc', "w").write(text)
 
 print 'Changing ROX'
