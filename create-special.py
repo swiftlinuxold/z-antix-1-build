@@ -73,7 +73,7 @@ def copy_file_1build (name, name_full):
 	file1=dir_build+'/cosmetic-regular.sh'
 	file2=dir_build+'/cosmetic-'+name+'.sh'
 	text1='exit 0'
-	text2='python $DIR_DEVELOP/1-build/cosmetic-'+name+'.py\n\n'
+	text2='python $DIR_DEVELOP/1-build/shared-'+name+'.py\n\n'
 	text2=text2+text1
 	copy_file (file1, file2, text1, text2)
 	
