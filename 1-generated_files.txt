@@ -10,14 +10,15 @@ Original files:
 7.  remove_deb.sh
 8.  shared-special.py
 
-Note that all but one of these original files are all Diet Swift Linux scripts.  
-The exception is remove_deb.sh.
+Note that all but two of these original files are all Diet Swift Linux scripts.  
+The remove_deb.sh script is also used for Regular Swift Linux.
+The shared-special.py file is a template for a script used for creating the special editions.
 
 The scripts that generate files are:
 1.  create-regular.py
 2.  create-special.py
 
-The files generated through a combination of the scripts and the original files are:
+The files generated through a combination of the above scripts and the original files are:
 
 build-regular.sh
 build-taylorswift.sh
