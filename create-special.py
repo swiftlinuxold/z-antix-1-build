@@ -11,14 +11,16 @@ if username == 'root':
 dir_develop='/home/'+username+'/develop'
 dir_build=dir_develop+'/1-build'
 
-os.system ('python '+dir_build+'/create-regular.py')
+os.system ('python '+dir_build+'/create-regular.py') # Runs the create-regular.py script
 
-def change_text (filename, text_old, text_new):
+def change_text (filename, text_old, text_new): 
+	# Replaces text within a file
 	text=open(filename, 'r').read()
 	text = text.replace(text_old, text_new) 
 	open(filename, "w").write(text)
 	
-def copy_file (file_old, file_new, text_old, text_new):
+def copy_file (file_old, file_new, text_old, text_new): 
+	# Copies a file and replaces text within the new file
 	ret = os.access(file_new, os.F_OK)
 	if (ret):
 		os.remove (file_new)
@@ -26,6 +28,9 @@ def copy_file (file_old, file_new, text_old, text_new):
 	change_text(file_new, text_old, text_new)
 	
 def copy_file_1build (name, name_full):
+	# Copies various *regular.* files and replaces 'regular' with
+	# the name of the special edition
+	
 	# name is all-lowercase (taylorswift, minnesota, chicago)
 	# name_full is the full name (Taylor Swift Linux, Minnesota Swift Linux,
 	# Chicago Swift Linux)
