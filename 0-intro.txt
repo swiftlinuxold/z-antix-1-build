@@ -1,12 +1,12 @@
-(NOTE: abc - diet, regular, taylorswift, minnesota, or chicago)
+(NOTE: abc - taylorswift, minnesota, or chicago)
 
 Installing Diet Swift Linux on the desktop:
 su
-sh desktop-abc.sh
+sh desktop-diet.sh
 
 Creating the Diet Swift Linux ISO:
 su
-sh build-abc.sh
+sh build-diet.sh
 
 Installing Regular Swift Linux on the desktop:
 python create-regular.py
